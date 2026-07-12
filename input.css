@@ -1,0 +1,26 @@
+@import "tailwindcss";
+
+@theme {
+  --color-hhsblue: #061045;
+  --color-hhsred: #940000;
+}
+
+@layer base {
+  h1 {
+    @apply text-2xl;
+  }
+
+  a {
+    @apply text-black underline
+  }
+}
+
+@layer components {
+  .imagecredit {
+    @apply m-3 text-gray-300 text-sm
+  }
+
+  .section {
+    @apply w-full h-[30em]
+  }
+}
