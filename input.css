@@ -7,6 +7,10 @@
 
 @layer base {
   h1 {
+    @apply text-6xl;
+  }
+
+  h2 {
     @apply text-2xl;
   }
 
@@ -17,10 +21,14 @@
 
 @layer components {
   .imagecredit {
-    @apply m-3 text-gray-300 text-sm
+    @apply m-3 text-gray-300 text-[0.75em] z-1 absolute
+  }
+
+  .topbar {
+    @ap
   }
 
   .section {
-    @apply w-full h-[30em]
+    @apply w-full h-[30em] flex flex-col md:flex-row items-center
   }
 }
