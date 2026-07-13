@@ -188,6 +188,9 @@
   .z-1 {
     z-index: 1;
   }
+  .m-5 {
+    margin: calc(var(--spacing) * 5);
+  }
   .mt-1 {
     margin-top: var(--spacing);
   }
