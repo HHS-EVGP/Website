@@ -34,7 +34,7 @@
 
 @layer components {
   .imagecredit {
-    @apply m-3 text-gray-300 text-[0.75em] absolute
+    @apply m-3 text-gray-300 text-[0.75em]
   }
 
   .topbar {
