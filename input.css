@@ -34,7 +34,7 @@
 
 @layer components {
   .title {
-    @apply bg-cover bg-center w-full flex flex-col text-center justify-center align-middle md:justify-end md:text-left
+    @apply relative bg-cover bg-center w-full flex flex-col text-center justify-center align-middle md:justify-end md:text-left
   }
 
   .imagecredit {
