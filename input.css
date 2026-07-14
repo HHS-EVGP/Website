@@ -11,24 +11,61 @@
   }
 
   h2 {
-    @apply text-2xl;
+    @apply text-4xl;
+  }
+
+  h3 {
+    @apply text-3xl
+  }
+
+  p {
+    @apply text-lg
   }
 
   a {
-    @apply text-black underline
+    @apply underline
   }
+
 }
 
 @layer components {
   .imagecredit {
-    @apply m-3 text-gray-300 text-[0.75em] z-1 absolute
+    @apply m-3 text-gray-300 text-[0.75em] absolute
   }
 
   .topbar {
-    @ap
+    @apply sm:sticky top-0 flex flex-col sm:flex-row justify-center items-center sm:space-x-6 p-2
   }
 
-  .section {
-    @apply w-full h-[30em] flex flex-col md:flex-row items-center
+  .section-white {
+    @apply w-full bg-white text-black rounded-3xl px-5 py-20
+  }
+
+  .section-hhsblue {
+    @apply w-full bg-hhsblue text-white px-5 py-20
+  }
+
+  .split {
+    @apply flex flex-col md:flex-row justify-center items-center
+  }
+
+  .half {
+    @apply flex flex-col items-center justify-center md:w-[40%] space-y-3 p-2 text-center
+  }
+
+  .button {
+    @apply rounded-full bg-hhsred text-white border border-white p-4 no-underline shadow-lg font-bold hover:scale-105 duration-300 ease-in-out mt-3
+  }
+
+  .picture-square {
+    @apply  aspect-square h-[50ex] object-cover m-5 rounded-4xl shadow-2xl
+  }
+
+  .picture {
+    @apply object-cover m-5 rounded-2xl shadow-xl
+  }
+
+  .card {
+    @apply w-full lg:w-[30%] m-5 p-5 shadow-lg rounded-3xl border-2 border-black flex flex-col items-center justify-center text-center space-y-5
   }
 }

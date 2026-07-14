@@ -10,63 +10,121 @@
   <title>HHS EVGP</title>
 </head>
 
-<body>
+<body class="bg-hhsblue">
+  <!--Title Page-->
   <div class="bg-[url('Assets/Locked_In.JPG')] bg-cover bg-center w-full h-screen flex flex-col justify-end">
-    <div class="absolute inset-0 bg-linear-to-t from-black/90 via-black/35 to-transparent"></div>
 
-    <div class="z-1 lg:w-[80%] space-y-2 p-5 text-white">
-      <h1>Student Driven Success</h1>
-      <h2>We are HHS EVGP</p>
+    <div class="absolute w-full h-screen z-1 bg-linear-to-t from-black/90 to-black/10"></div>
+
+    <div class="z-2 text-white space-y-2 p-5">
+      <h1>Student-Driven Success</h1>
+      <h3>We are the Harrisonburg High School Electric Vehicle Grand Prix</h3>
     </div>
-    <p class="right-0 bottom-0 imagecredit">Photo by <a class="text-gray-300"
-        href="https://www.instagram.com/ella.takesphotos">Ella Salzmann</a></p>
-
-
+    <p class="right-0 bottom-0 z-2 imagecredit">Photos by <a href="https://www.instagram.com/ella.takesphotos">Ella
+        Salzmann</a></p>
   </div>
 
-  <!--bg-linear-to-b from-black/50 to-transparent-->
-  <div class="bg-blue-400 fixed top-5 right-5 p-3 rounded-2xl shadow-lg flex flex-row space-x-2">
-      <a href="https://github.com/hhs-evgp"><img class="w-8 h-8 mt-1" src="Assets/github.svg"></img></a>
-      <a href=""><img class="w-10 h-10" src="Assets/instagram.svg"></img></a>
-      <a href=""><img class="w-10 h-10" src="Assets/youtube.svg"></img></a>
-    </div>
+  <!--Banner with links-->
+  <div class="topbar bg-hhsred text-2xl text-white font-bold">
 
-  </div>
+    <a href="mailto:contact@hhsevgp.org">Contact</a>
+    <a>Donate</a>
 
-  <h1 class="text-black text-center m-5">More Website Coming Soon!</h1>
-
-  <!--
-  <div class="section">
-    <h2>What we do</h2>
-  </div>
-
-  <div class="section">
-    <div class="text-center space-y-3 w-[40%] bg-red-400">
-      <h2 class="text-left">Informational Rescources</h2>
-
-      <p>As student engeneers, we beleive that the best inovations come as a result of information being open and
-        shared, not guarded as secrets. We want to share as much of our knowledge and experience as we can with anyone
-        who might benifit. For this reason, along with publishing our code, data, and designs for anyone to use, we have
-        started creating informational videos with everything we have learned in our last five years of racing</p>
-      <p>Check out our YouTube Channel and our GitHub page for these Rescources!</p>
-    </div>
-    <div class="h-full w-[40%] bg-blue-400">
-      <p>Yada yada picture here</p>
+    <div class="flex flex-row space-x-2">
+      <a href="https://www.github.com/hhs-evgp"><img class="w-8 h-8 mt-1" src="Assets/github.svg"></img></a>
+      <a href="https://www.instagram.com/hhs_evgp"><img class="w-10 h-10" src="Assets/instagram.svg"></img></a>
+      <a href="https://www.youtube.com/"><img class="w-10 h-10" src="Assets/youtube.svg"></img></a>
     </div>
   </div>
 
-  <div class="section">
-    <h2>News</h2>
+  <!--About us section-->
+  <div class="section-white split rounded-t-none">
+    <div class="half">
+      <h2>What We Do</h2>
+
+      <p>We are a group of students at <a href="https://harrisonburg.k12.va.us/hhs">Harrisonburg High School</a> who
+        design, build, and race an electric car to
+        compete in the Electric Vehicle Grand Prix. As of 2026, we are a five-year-old team.</p>
+    </div>
+    <div class="half">
+      <img src="Assets/Buckle_Check.JPG" class="picture-square">
+    </div>
   </div>
 
-  <div class="section">
-    <h2>Support us</h2>
+  <!--Sharing our knowledge-->
+  <div class="section-hhsblue split">
+    <div class="half">
+      <img src="Assets/Josh_Wave.JPG" class="picture-square">
+    </div>
+    <div class="half">
+
+      <h2>Sharing Our Knowledge</h2>
+
+      <p>As student innovators, we believe that the lessons and experiences we learn should be shared, not guarded as
+        secrets. For this reason, we publish our code and designs on GitHub and run a YouTube channel with
+        informational videos.</p>
+
+      <div class="flex flex-row space-x-2">
+        <a href="https://github.com/hhs-evgp" class="button">Check out our GitHub</a>
+        <a href="" class="button">Visit our YouTube channel</a>
+      </div>
+    </div>
   </div>
 
-  <div class="section bg-gray-500">
-    <h2>Credits etc</h2>
+  <!--News blurbs-->
+  <div class="section-white split flex-col lg:flex-row lg:items-stretch">
+    <!--<h2 class="text-center text-6xl italic m-5 vertical-text tracking-wider">NEWS</h2>-->
+
+    <div class="card">
+      <img class="picture" src="Assets/Car_111.jpg">
+
+      <h3>Results from the 2026 Washington, DC, and Shenandoah races</h3>
+
+      <p>We finished 2nd in our class at the 2026 DC EVGP and 1st in our class at the 2026 Shenandoah Valley EVGP.
+        Congratulations to all our hardworking team members!</p>
+      <p>Applause to the people behind Car 111, who went from a car that hadn't driven in years to a raceable car in
+        just a few weeks!</p>
+    </div>
+
+    <div class="card">
+      <img class="picture" src="Assets/Gps_Speed.png">
+
+      <h3>Our car telemetry is now publicly available!</h3>
+
+      <p>We publish every point of data we collect using our custom <a
+          href="https://github.com/HHS-EVGP/Radio-Telemetry">Radio Telemetry System</a>. Check it out <a
+          href="https://github.com/HHS-EVGP/Data-Archive">Here</a>!</p>
+    </div>
+
+    <div class="card">
+      <img class="picture" src="Assets/Uae_Evgp.png">
+
+      <h3>Funding needs to compete in the UAE</h3>
+
+      <p>We are trying to raise enough money to compete in the 2027 UAE EVGP. Donate today to help us make this dream a
+        reality.</p>
+    </div>
   </div>
-  -->
+
+  <!--Prompt to donate-->
+  <div class="section-hhsblue items-center text-center flex flex-col space-y-3 py-50">
+    <h2>Support Us</h2>
+
+    <p class="md:px-50">Help this life-changing program continue by making a tax-deductible donation. Donate any amount
+      of money to become a sponsor or pay specifically for an item on our wishlist.</p>
+
+    <div class="flex flex-row space-x-2">
+      <a href="" class="button">Make a Donation</a>
+      <a href="" class="button">See our Wishlist</a>
+    </div>
+  </div>
+
+  <!--Special thanks-->
+  <div class="section-white rounded-b-none text-center py-15">
+    <p class="text-2xl font-bold">Special thanks to Harrisonburg City Public Schools, the Governor's STEM Academy, and
+      all the hardworking organizers who make this competition possible!</p>
+  </div>
+
 </body>
 
 </html>
