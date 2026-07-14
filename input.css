@@ -33,8 +33,12 @@
 }
 
 @layer components {
+  .title {
+    @apply bg-cover bg-center w-full flex flex-col text-center justify-center align-middle md:justify-end md:text-left
+  }
+
   .imagecredit {
-    @apply m-3 text-gray-300 text-[0.75em]
+    @apply text-gray-400 text-[0.75em] absolute
   }
 
   .topbar {
@@ -62,7 +66,7 @@
   }
 
   .picture-square {
-    @apply  aspect-square h-[50ex] object-cover m-5 rounded-4xl shadow-2xl
+    @apply aspect-square h-[50ex] object-cover m-5 rounded-4xl shadow-2xl
   }
 
   .picture {
