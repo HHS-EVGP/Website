@@ -212,8 +212,17 @@
   .h-67 {
     height: calc(var(--spacing) * 67);
   }
+  .h-\[0\.8vh\] {
+    height: 0.8vh;
+  }
   .h-\[75vh\] {
     height: 75vh;
+  }
+  .h-\[80vh\] {
+    height: 80vh;
+  }
+  .h-\[90vh\] {
+    height: 90vh;
   }
   .h-screen {
     height: 100vh;
@@ -377,6 +386,11 @@
   .outline {
     outline-style: var(--tw-outline-style);
     outline-width: 1px;
+  }
+  .sm\:h-screen {
+    @media (width >= 40rem) {
+      height: 100vh;
+    }
   }
   .lg\:flex-row {
     @media (width >= 64rem) {
