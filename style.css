@@ -203,9 +203,6 @@
   .mt-1 {
     margin-top: var(--spacing);
   }
-  .mb-0 {
-    margin-bottom: 0;
-  }
   .flex {
     display: flex;
   }
@@ -220,6 +217,9 @@
   }
   .h-67 {
     height: calc(var(--spacing) * 67);
+  }
+  .h-\[75vh\] {
+    height: 75vh;
   }
   .h-screen {
     height: 100vh;
@@ -303,6 +303,9 @@
   .bg-\[url\(\'Assets\/Locked_In\.JPG\'\)\] {
     background-image: url('Assets/Locked_In.JPG');
   }
+  .bg-\[url\(\'Assets\/Traffic\.JPG\'\)\] {
+    background-image: url('Assets/Traffic.JPG');
+  }
   .from-black {
     --tw-gradient-from: var(--color-black);
     --tw-gradient-stops: var(--tw-gradient-via-stops, var(--tw-gradient-position), var(--tw-gradient-from) var(--tw-gradient-from-position), var(--tw-gradient-to) var(--tw-gradient-to-position));
@@ -337,8 +340,17 @@
   .py-15 {
     padding-block: calc(var(--spacing) * 15);
   }
+  .py-40 {
+    padding-block: calc(var(--spacing) * 40);
+  }
   .py-50 {
     padding-block: calc(var(--spacing) * 50);
+  }
+  .py-60 {
+    padding-block: calc(var(--spacing) * 60);
+  }
+  .py-80 {
+    padding-block: calc(var(--spacing) * 80);
   }
   .text-center {
     text-align: center;
@@ -389,6 +401,9 @@
   }
 }
 @layer base {
+  body {
+    background-color: var(--color-hhsblue);
+  }
   h1 {
     font-size: var(--text-6xl);
     line-height: var(--tw-leading, var(--text-6xl--line-height));

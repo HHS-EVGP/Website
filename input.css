@@ -6,6 +6,10 @@
 }
 
 @layer base {
+  body {
+    @apply bg-hhsblue
+  }
+
   h1 {
     @apply text-6xl;
   }
