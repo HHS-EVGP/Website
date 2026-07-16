@@ -42,7 +42,7 @@
   }
 
   .topbar {
-    @apply sm:sticky top-0 flex flex-col sm:flex-row justify-center items-center sm:space-x-6 p-2
+    @apply sticky top-0 flex flex-row flex-nowrap overflow-x-auto sm:justify-center items-center space-x-6 p-2
   }
 
   .section-white {
