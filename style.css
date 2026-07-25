@@ -192,17 +192,8 @@
   .bottom-1 {
     bottom: var(--spacing);
   }
-  .bottom-2 {
-    bottom: calc(var(--spacing) * 2);
-  }
-  .bottom-3 {
-    bottom: calc(var(--spacing) * 3);
-  }
   .bottom-5 {
     bottom: calc(var(--spacing) * 5);
-  }
-  .bottom-6 {
-    bottom: calc(var(--spacing) * 6);
   }
   .left-1 {
     left: var(--spacing);
@@ -237,12 +228,6 @@
   .h-4 {
     height: calc(var(--spacing) * 4);
   }
-  .h-5 {
-    height: calc(var(--spacing) * 5);
-  }
-  .h-6 {
-    height: calc(var(--spacing) * 6);
-  }
   .h-8 {
     height: calc(var(--spacing) * 8);
   }
@@ -252,20 +237,14 @@
   .h-\[75vh\] {
     height: 75vh;
   }
-  .h-\[80vh\] {
-    height: 80vh;
+  .h-\[90vh\] {
+    height: 90vh;
   }
   .h-screen {
     height: 100vh;
   }
   .w-4 {
     width: calc(var(--spacing) * 4);
-  }
-  .w-5 {
-    width: calc(var(--spacing) * 5);
-  }
-  .w-6 {
-    width: calc(var(--spacing) * 6);
   }
   .w-8 {
     width: calc(var(--spacing) * 8);
@@ -377,9 +356,6 @@
     }
     --tw-gradient-stops: var(--tw-gradient-via-stops, var(--tw-gradient-position), var(--tw-gradient-from) var(--tw-gradient-from-position), var(--tw-gradient-to) var(--tw-gradient-to-position));
   }
-  .fill-white {
-    fill: var(--color-white);
-  }
   .py-15 {
     padding-block: calc(var(--spacing) * 15);
   }
@@ -420,18 +396,6 @@
   .outline {
     outline-style: var(--tw-outline-style);
     outline-width: 1px;
-  }
-  .duration-300 {
-    --tw-duration: 300ms;
-    transition-duration: 300ms;
-  }
-  .duration-500 {
-    --tw-duration: 500ms;
-    transition-duration: 500ms;
-  }
-  .duration-700 {
-    --tw-duration: 700ms;
-    transition-duration: 700ms;
   }
   .duration-1000 {
     --tw-duration: 1000ms;
