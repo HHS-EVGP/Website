@@ -2,73 +2,74 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link href="./style.css" rel="stylesheet">
-    <link rel="icon" type="image/x-icon" href="Assets/favicon.png">
-    <title>Contact Us!</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"
+    rel="stylesheet">
+  <link href="./style.css" rel="stylesheet">
+  <link rel="icon" type="image/x-icon" href="Assets/icons/favicon.png">
+  <script src="main.js" defer></script>
+  <title>Contact Us</title>
 </head>
 
 <body>
-    <!--Title-->
-    <div class="bg-[url('Assets/Traffic.webp')] h-[75vh] title">
+  <!--Banner with links-->
+  <header class="site-header">
+    <div class="site-header-inner">
+      <a href="index.html" class="logo"><img src="Assets/icons/favicon.png" alt="HHS EVGP"></a>
 
-        <div class="absolute w-full h-[75vh] z-1 bg-linear-to-t from-black/90 to-black/10"></div>
-
-        <div class="z-2 text-white space-y-2 m-7">
-            <h1>Contact Us</h1>
-            <h3>We would love to help you in any way we can!</h3>
-        </div>
-    </div>
-
-
-    <!--Banner with links-->
-    <div class="topbar bg-hhsred text-2xl text-white font-bold">
-
+      <nav class="nav">
         <a href="index.html">Home</a>
-        <a href="contact.html">Contact</a>
+        <a href="contact.html" aria-current="page">Contact</a>
         <a href="donate.html">Donate</a>
+        <a href="resources.html">Resources</a>
+      </nav>
 
-        <div class="flex flex-row flex-none space-x-2">
-            <a href="https://www.github.com/hhs-evgp"><img class="w-8 h-8 mt-1" src="Assets/github.svg"></a>
-            <a href="https://www.instagram.com/hhs_evgp"><img class="w-10 h-10" src="Assets/instagram.svg"></a>
-            <a href="https://www.youtube.com/"><img class="w-10 h-10" src="Assets/youtube.svg"></a>
-        </div>
+      <div class="socials">
+        <a href="https://www.github.com/hhs-evgp"><img src="Assets/icons/github.svg" alt="GitHub"></a>
+        <a href="https://www.instagram.com/hhs_evgp"><img src="Assets/icons/instagram.svg" alt="Instagram"></a>
+        <a href="https://www.youtube.com/"><img src="Assets/icons/youtube.svg" alt="YouTube"></a>
+      </div>
     </div>
+  </header>
 
-    <div class="section-white rounded-t-none text-center py-40">
-        <h2>Send us an email!</h2>
+  <!--Title-->
+  <section class="hero hero-short">
+    <div class="hero-media bg-[url('Assets/images/Traffic.webp')]"></div>
 
-        <p class="widetext">Send an email to <a href="mailto:contact@hhsevgp.org">contact@hhsevgp.org</a> to contact a
-            student with any question or request you might have.</p>
+    <div class="hero-text">
+      <h1>Contact <span class="text-hhsred">Us</span></h1>
+      <h3>We would love to help you in any way we can!</h3>
     </div>
+  </section>
 
-    <div class="section-hhsblue split">
-        <div class="half">
-            <img class="picture-square" src="Assets/HHS.JPG">
-        </div>
+  <div class="rule"></div>
 
-        <div class="half">
-            <h2>Contact a Teacher</h2>
-            <p>If you <span class="italic">really</span> need to talk to an adult about boring adult stuff, you can
-                email our teacher sponsor at <a
-                    href="mailto:sshantz@harrisonburg.k12.va.us">sshantz@harrisonburg.k12.va.us</a>.</p>
-        </div>
-    </div>
+  <section class="section centered py-28 md:py-40" data-reveal>
+    <h2>Send Us an Email!</h2>
 
-    <div class="section-white split rounded-b-none">
-        <div class="half">
-            <h2>Come talk to us!</h2>
-            <p>Seriously, if you see anyone on our team and have a question, idea, joke, or whatever, come say hi! We
-                are at our best when we are collaborating with other teams.
-            </p>
-        </div>
+    <p class="widetext">Send an email to <a href="mailto:contact@hhsevgp.org">contact@hhsevgp.org</a> to contact a
+      student with any question or request you might have.</p>
+  </section>
 
-        <div class="half">
-            <img class="picture-square" src="Assets/High_Five.webp">
-        </div>
-    </div>
+  <section class="panel panel-blue mb-30">
+    <section class="section split">
+      <div class="half" data-reveal>
+        <h2>Come Talk to Us!</h2>
+        <p>Seriously, if you see anyone on our team and have a question, idea, joke, or whatever, come say hi! We
+          are at our best when we are collaborating with other teams.
+        </p>
+      </div>
+
+      <div class="half md:items-end" data-reveal>
+        <img class="picture-square" src="Assets/images/High_Five.webp">
+      </div>
+    </section>
+  </section>
 </body>
 
 </html>

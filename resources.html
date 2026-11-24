@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"
+    rel="stylesheet">
+  <link href="./style.css" rel="stylesheet">
+  <link rel="icon" type="image/x-icon" href="Assets/icons/favicon.png">
+  <script src="main.js" defer></script>
+  <title>Resources</title>
+</head>
+
+<body>
+  <!--Banner with links-->
+  <header class="site-header">
+    <div class="site-header-inner">
+      <a href="index.html" class="logo"><img src="Assets/icons/favicon.png" alt="HHS EVGP"></a>
+
+      <nav class="nav">
+        <a href="index.html">Home</a>
+        <a href="contact.html">Contact</a>
+        <a href="donate.html">Donate</a>
+        <a href="resources.html" aria-current="page">Resources</a>
+      </nav>
+
+      <div class="socials">
+        <a href="https://www.github.com/hhs-evgp"><img src="Assets/icons/github.svg" alt="GitHub"></a>
+        <a href="https://www.instagram.com/hhs_evgp"><img src="Assets/icons/instagram.svg" alt="Instagram"></a>
+        <a href="https://www.youtube.com/"><img src="Assets/icons/youtube.svg" alt="YouTube"></a>
+      </div>
+    </div>
+  </header>
+
+  <!--Title-->
+  <section class="hero hero-short">
+    <div class="hero-media bg-[url('Assets/images/Working_On_Car.webp')]"></div>
+
+    <div class="hero-text">
+      <h1>Informational <span class="text-hhsred">Resources</span></h1>
+      <h3>Because what we learn shouldn't be kept a secret.</h3>
+    </div>
+  </section>
+
+  <div class="rule"></div>
+
+  <section class="section centered py-28 md:py-40" data-reveal>
+    <h2>YouTube Videos</h2>
+
+    <p class="widetext">We are working to build a YouTube channel with informational videos about building, maintaining,
+      and upgrading EVGP cars.</p>
+    <a href="https://www.youtube.com/" class="button">Check Out Our YouTube</a>
+  </section>
+
+  <section class="panel panel-blue mb-30">
+    <section class="section split">
+      <div class="half" data-reveal>
+        <h2>Official Competition Documents</h2>
+        <p>All of this information is publicly available, and we hope you find it helpful.</p>
+
+        <div class="flex flex-col items-start gap-2">
+          <a href="Assets/documents/EVGP_Assembly_Manual_V6.1_September_2020.pdf"
+            download="EVGP_Assembly_Manual_V6.1_September_2020.pdf" class="button">Build Manual</a>
+          <a href="Assets/documents/EVGP_Drivers_Manual_V5.1_September_2024.pdf"
+            download="EVGP_Drivers_Manual_V5.1_September_2024.pdf" class="button">Driver's Manual</a>
+          <a href="Assets/documents/EVGP_Official_Rules_and_Regulations_V5.0_June_2025.pdf"
+            download="EVGP_Official_Rules_and_Regulations_V5.0_June_2025.pdf" class="button">Rules and
+            Regulations</a>
+        </div>
+      </div>
+
+      <div class="half md:items-end" data-reveal>
+        <img class="picture-square" src="Assets/images/Driving_By_Marshall.webp">
+      </div>
+    </section>
+  </section>
+</body>
+
+</html>

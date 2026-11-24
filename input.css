@@ -3,81 +3,422 @@
 @theme {
   --color-hhsblue: #061045;
   --color-hhsred: #940000;
+
+  /* Page colors. These swap when the page fades to dark (see [data-theme="dark"]) */
+  --color-surface: #f6f4ef;
+  --color-heading: #061045;
+  --color-ink: #1c2340;
+  --color-muted: #5d6379;
+  --color-line: #dad7ce;
+
+  --font-sans: "Inter Tight", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+}
+
+/* Same width as the content inside .section */
+@utility frame {
+  @apply mx-auto w-[min(100%-2.5rem,76rem)] md:w-[min(100%-4rem,76rem)];
 }
 
 @layer base {
+  html {
+    @apply scroll-pt-20;
+  }
+
+  html[data-theme="dark"] {
+    --color-surface: #061045;
+    --color-heading: #ffffff;
+    --color-ink: #e4e7f3;
+    --color-muted: #a3a9c4;
+    --color-line: rgb(255 255 255 / 0.16);
+  }
+
   body {
-    @apply bg-hhsblue
+    @apply bg-surface text-ink font-sans antialiased;
+  }
+
+  /* Fade between the light and dark page themes */
+  body,
+  h1,
+  h2,
+  h3,
+  p,
+  .site-header,
+  .nav a,
+  .rule,
+  .news-list > * {
+    transition-property: color, background-color, border-color;
+    transition-duration: 700ms;
+    transition-timing-function: ease;
+  }
+
+  ::selection {
+    @apply bg-hhsred text-white;
   }
 
   h1 {
-    @apply text-6xl;
+    @apply text-[clamp(2.75rem,7vw,6.5rem)] font-semibold leading-[0.95] tracking-tighter text-heading;
   }
 
   h2 {
-    @apply text-4xl;
+    @apply text-4xl md:text-5xl font-semibold leading-[1.05] tracking-tight text-heading;
+  }
+
+  /* Short racing-stripe accent above section headings */
+  h2::before {
+    content: "";
+    @apply block w-12 h-1 mb-6 bg-hhsred;
   }
 
   h3 {
-    @apply text-3xl
+    @apply text-2xl md:text-3xl font-medium leading-tight tracking-tight text-heading;
   }
 
   p {
-    @apply text-lg
+    @apply text-lg leading-relaxed text-ink/80;
   }
 
   a {
-    @apply underline
+    @apply underline decoration-hhsred decoration-2 underline-offset-4 transition-colors hover:text-hhsred;
   }
-
 }
 
 @layer components {
-  .title {
-    @apply relative bg-cover bg-center w-full flex flex-col text-center justify-center align-middle md:justify-end md:text-left
+
+  /* ---------- Header ---------- */
+
+  .site-header {
+    @apply sticky top-0 z-50 h-16 border-t-[3px] border-b border-t-hhsred border-b-line bg-surface/80 backdrop-blur-md;
   }
 
-  .imagecredit {
-    @apply text-gray-400 text-[0.75em] absolute
+  .site-header-inner {
+    @apply mx-auto flex h-full max-w-7xl items-center gap-5 overflow-x-auto px-4 sm:gap-6 sm:px-5 md:px-8;
   }
 
-  .topbar {
-    @apply sticky top-0 flex flex-row flex-nowrap overflow-x-auto sm:justify-center items-center space-x-6 p-2
+  .logo {
+    @apply flex-none;
   }
 
-  .section-white {
-    @apply w-full bg-white text-black rounded-3xl px-5 py-20
+  .logo img {
+    @apply h-9 w-9;
   }
 
-  .section-hhsblue {
-    @apply w-full bg-hhsblue text-white px-5 py-20
+  .nav {
+    @apply flex flex-1 items-center gap-5 sm:justify-center sm:gap-6;
+  }
+
+  .nav a {
+    @apply relative font-mono text-[0.7rem] uppercase tracking-wider text-heading no-underline sm:text-xs sm:tracking-widest;
+  }
+
+  .nav a:hover,
+  .nav a[aria-current="page"] {
+    @apply text-hhsred;
+  }
+
+  .nav a[aria-current="page"]::before {
+    content: "";
+    @apply absolute -left-3 top-1/2 h-1.5 w-1.5 -translate-y-1/2 bg-hhsred;
+  }
+
+  .socials {
+    @apply flex flex-none items-center gap-3 sm:gap-4;
+  }
+
+  /* The icon SVGs are white; darken them for the light header */
+  .socials img {
+    @apply h-[1.125rem] w-auto opacity-80 sm:h-5 brightness-0 transition duration-700 hover:opacity-100;
+  }
+
+  html[data-theme="dark"] .nav a:hover,
+  html[data-theme="dark"] .nav a[aria-current="page"] {
+    @apply text-white;
+  }
+
+  html[data-theme="dark"] .socials img {
+    @apply invert;
+  }
+
+  /* ---------- Hero ---------- */
+
+  .hero {
+    @apply flex min-h-[calc(100svh-4rem)] flex-col px-3 pt-3 pb-10 md:px-5;
+  }
+
+  .hero-short {
+    @apply min-h-[75svh];
+  }
+
+  .hero-media {
+    @apply relative min-h-[40svh] flex-1 overflow-hidden rounded-2xl bg-hhsblue bg-cover bg-center;
+    animation: hero-zoom 1.6s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+  }
+
+  .hero-text {
+    @apply frame grid items-end gap-4 pt-8 md:grid-cols-[1fr_minmax(0,22rem)] md:gap-12 md:pt-10;
+    animation: rise 1s 0.2s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+  }
+
+  .hero-text h3 {
+    @apply text-lg md:text-xl font-normal text-muted md:pb-2;
+  }
+
+  /* ---------- Layout ---------- */
+
+  .rule {
+    @apply frame relative h-px bg-line;
+  }
+
+  .rule::before,
+  .rule::after {
+    content: "";
+    @apply absolute -top-1 h-[9px] w-0.5 bg-hhsred;
+  }
+
+  .rule::before {
+    @apply left-0;
+  }
+
+  .rule::after {
+    @apply right-0;
+  }
+
+  .section {
+    @apply mx-auto w-full max-w-7xl px-5 py-20 md:px-8 md:py-28;
   }
 
   .split {
-    @apply flex flex-col md:flex-row justify-center items-center
+    @apply grid items-center gap-10 md:grid-cols-2 md:gap-16;
   }
 
   .half {
-    @apply flex flex-col items-center justify-center md:w-[40%] space-y-3 p-2 text-center
+    @apply flex flex-col items-start gap-5;
   }
 
-  .button {
-    @apply rounded-full bg-hhsred text-white border border-white p-4 no-underline shadow-lg font-bold hover:scale-105 duration-300 ease-in-out mt-3
+  .centered {
+    @apply flex flex-col items-center gap-5 text-center;
   }
 
-  .picture-square {
-    @apply aspect-square h-[50ex] object-cover m-5 rounded-4xl shadow-2xl
-  }
-
-  .picture {
-    @apply object-cover m-5 rounded-2xl shadow-xl
-  }
-
-  .card {
-    @apply w-full lg:w-[30%] m-5 p-5 shadow-lg rounded-3xl border-2 border-black flex flex-col items-center justify-center text-center space-y-5
+  .centered h2::before {
+    @apply mx-auto;
   }
 
   .widetext {
-    @apply md:px-50
+    @apply max-w-3xl;
+  }
+
+  .panel {
+    @apply frame rounded-3xl;
+  }
+
+  .panel > .section {
+    @apply md:px-16;
+  }
+
+  .panel-blue {
+    @apply bg-hhsblue text-white;
+  }
+
+  .panel-blue h2,
+  .panel-blue h3 {
+    @apply text-white;
+  }
+
+  .panel-blue p {
+    @apply text-white/75;
+  }
+
+  /* Red text is hard to read on navy, so links go white on hover instead */
+  .panel-blue a:not(.button):hover,
+  html[data-theme="dark"] a:not(.button):hover {
+    @apply text-white decoration-white;
+  }
+
+  /* ---------- Elements ---------- */
+
+  .button {
+    @apply mt-2 inline-flex items-center gap-3 rounded-md border border-hhsred bg-hhsred px-5 py-3.5 font-mono text-xs uppercase tracking-widest text-white no-underline transition-colors duration-300 hover:bg-white hover:text-hhsred;
+  }
+
+  .button::after {
+    content: "→";
+    @apply transition-transform duration-300;
+  }
+
+  .button:hover::after {
+    @apply translate-x-1;
+  }
+
+  .button[download]::after {
+    content: "↓";
+  }
+
+  .button[download]:hover::after {
+    @apply translate-x-0 translate-y-0.5;
+  }
+
+  .picture-square {
+    @apply aspect-square w-full max-w-[34rem] rounded-2xl object-cover;
+  }
+
+  .picture {
+    @apply aspect-[4/3] w-full rounded-xl object-cover;
+  }
+
+  .sponsor {
+    @apply w-full;
+  }
+
+  .news-list {
+    @apply divide-y divide-line;
+  }
+
+  .news-item {
+    @apply grid items-center gap-4 py-6 first:pt-0 last:pb-0 md:grid-cols-[1fr_minmax(0,18rem)] md:gap-12;
+  }
+
+  .news-item .picture {
+    @apply aspect-[2/1] md:order-last;
+  }
+
+  .news-item h3 {
+    @apply mb-2 text-xl md:text-2xl;
+  }
+
+  .news-item p {
+    @apply text-base;
+  }
+
+  .news-item p + p {
+    @apply mt-2;
+  }
+
+  .thanks {
+    @apply text-2xl md:text-3xl font-medium leading-snug tracking-tight text-heading;
+  }
+
+  /* ---------- Scroll reveal (enabled by main.js) ---------- */
+
+  .js [data-reveal] {
+    @apply translate-y-6 opacity-0 transition duration-1000 ease-[cubic-bezier(0.2,0.7,0.2,1)];
+  }
+
+  .js [data-reveal].is-visible {
+    @apply translate-y-0 opacity-100;
+  }
+
+  /* ---------- "What we do" drive-by ---------- */
+
+  .drive {
+    --car-w: min(92vw, 52rem, 105svh);
+    @apply relative;
+  }
+
+  .drive-stage {
+    @apply flex flex-col justify-center overflow-clip;
+  }
+
+  .drive-car {
+    @apply relative z-10 mx-auto mb-20;
+    width: var(--car-w);
+  }
+
+  /* Ground shadow: a wide soft pool plus tighter contact shadows under each wheel */
+  .drive-car::before,
+  .drive-car::after {
+    content: "";
+    @apply pointer-events-none absolute -z-10 rounded-[50%];
+  }
+
+  .drive-car::before {
+    @apply inset-x-[-2%] top-[86%] h-[18%];
+    background: radial-gradient(closest-side, rgb(6 16 69 / 0.28), rgb(6 16 69 / 0.1) 60%, transparent);
+  }
+
+  .drive-car::after {
+    @apply inset-x-0 top-[80%] h-1/4 rounded-none;
+    background:
+      /* Front wheel, touching down at 96.5% */
+      radial-gradient(16% 16% at 67.8% 66%, rgb(6 16 69 / 0.55), transparent),
+      /* Rear wheel, touching down higher (at 86%) because it sits farther back */
+      radial-gradient(8% 12% at 14.4% 26%, rgb(6 16 69 / 0.45), transparent);
+  }
+
+  .drive-car img {
+    @apply block w-full select-none;
+  }
+
+  .drive-wheel {
+    @apply absolute inset-0 h-full;
+    /* Center of the wheel in Car_Wheel.png */
+    transform-origin: 67.846% 67.27%;
+  }
+
+  /* Pinned, scroll-driven version (main.js adds .is-driving) */
+  .drive.is-driving {
+    @apply h-[300svh];
+  }
+
+  .drive.is-driving .drive-stage {
+    @apply sticky top-16 h-[calc(100svh-4rem)];
+  }
+
+  .drive.is-driving .drive-content {
+    @apply gap-6 py-6 md:gap-16 md:py-10;
+  }
+
+  .drive.is-driving .picture-square {
+    @apply w-auto;
+    height: min(34rem, 34svh);
+  }
+
+  @media (width >= 48rem) {
+    .drive.is-driving .picture-square {
+      height: min(34rem, calc(100svh - 10rem));
+    }
+  }
+
+  /* Drive through the middle of the content rather than below it */
+  .drive.is-driving .drive-car {
+    @apply absolute left-0 m-0 will-change-transform;
+    top: calc(50% - var(--car-w) * 0.1972);
+  }
+
+  .drive.is-driving .drive-wheel,
+  .drive.is-driving .drive-text > *,
+  .drive.is-driving .drive-photo > * {
+    @apply will-change-transform;
+  }
+}
+
+@keyframes hero-zoom {
+  from {
+    clip-path: inset(2% 2% round 1rem);
+    opacity: 0.6;
+  }
+
+  to {
+    clip-path: inset(0 round 1rem);
+    opacity: 1;
+  }
+}
+
+@keyframes rise {
+  from {
+    transform: translateY(1.5rem);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+  .hero-media,
+  .hero-text {
+    animation: none;
   }
 }

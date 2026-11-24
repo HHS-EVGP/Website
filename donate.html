@@ -2,59 +2,85 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link href="./style.css" rel="stylesheet">
-    <link rel="icon" type="image/x-icon" href="Assets/favicon.png">
-    <title>Donate!</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"
+    rel="stylesheet">
+  <link href="./style.css" rel="stylesheet">
+  <link rel="icon" type="image/x-icon" href="Assets/icons/favicon.png">
+  <script src="main.js" defer></script>
+  <title>Donate</title>
 </head>
 
 <body>
-    <!--Title-->
-    <div class="bg-[url('Assets/Driving.webp')] h-[75vh] title">
+  <!--Banner with links-->
+  <header class="site-header">
+    <div class="site-header-inner">
+      <a href="index.html" class="logo"><img src="Assets/icons/favicon.png" alt="HHS EVGP"></a>
 
-        <div class="absolute w-full h-[75vh] z-1 bg-linear-to-t from-black/90 to-black/10"></div>
-
-        <div class="z-2 text-white space-y-2 m-7">
-            <h1>Support Our Mission</h1>
-            <h3>Make a tax-deductible donation</h3>
-        </div>
-    </div>
-
-    <!--Banner with links-->
-    <div class="topbar bg-hhsred text-2xl text-white font-bold">
-
+      <nav class="nav">
         <a href="index.html">Home</a>
         <a href="contact.html">Contact</a>
-        <a href="donate.html">Donate</a>
+        <a href="donate.html" aria-current="page">Donate</a>
+        <a href="resources.html">Resources</a>
+      </nav>
 
-        <div class="flex flex-row flex-none space-x-2">
-            <a href="https://www.github.com/hhs-evgp"><img class="w-8 h-8 mt-1" src="Assets/github.svg"></a>
-            <a href="https://www.instagram.com/hhs_evgp"><img class="w-10 h-10" src="Assets/instagram.svg"></a>
-            <a href="https://www.youtube.com/"><img class="w-10 h-10" src="Assets/youtube.svg"></a>
-        </div>
+      <div class="socials">
+        <a href="https://www.github.com/hhs-evgp"><img src="Assets/icons/github.svg" alt="GitHub"></a>
+        <a href="https://www.instagram.com/hhs_evgp"><img src="Assets/icons/instagram.svg" alt="Instagram"></a>
+        <a href="https://www.youtube.com/"><img src="Assets/icons/youtube.svg" alt="YouTube"></a>
+      </div>
     </div>
+  </header>
 
-    <div class="section-white rounded-t-none text-center py-40">
-        <h2>Hang tight! Our accounts aren't set up yet</h2>
+  <!--Title-->
+  <section class="hero hero-short">
+    <div class="hero-media bg-[url('Assets/images/Driving.webp')]"></div>
 
-        <p class="widetext">Since it is the summer, we have not been able to set up our account for receiving donations.
-            We expect to be ready for donations in early September.</p>
+    <div class="hero-text">
+      <h1>Support Our <span class="text-hhsred">Mission</span></h1>
+      <h3>Make a tax-deductible donation.</h3>
     </div>
+  </section>
 
-    <div class="section-hhsblue split">
-        <div class="half">
-            <img class="picture-square" src="Assets/Collaborating.webp">
-        </div>
+  <div class="rule"></div>
 
-        <div class="half">
-            <h2>In the meantime, contact us!</h2>
-            <p>Get in touch if you would like to help support our team in any other way, from giving students rides to
-                buying pizza to lending your expertise to work on the car.</p>
-            <a href="contact.html" class="button">Let us know!</a>
-        </div>
+  <section class="my-10 panel panel-blue mb-5">
+    <div class="section split">
+      <div class="half" data-reveal>
+        <h2>Let Us Know</h2>
+        <p>Email us at <a href="mailto:contact@hhsevgp.org">contact@hhsevgp.org</a>, and we will get back to you
+          with the next steps.</p>
+        <a href="contact.html" class="button">Other Ways to Contact Us</a>
+      </div>
+
+      <div class="half" data-reveal>
+        <img class="picture-square" src="Assets/images/Collaborating.webp">
+      </div>
     </div>
+  </section>
+
+  <section class="section centered py-30" data-reveal>
+    <h2>Our Sponsors</h2>
+
+    <p class="widetext">You guys make our team possible. Thank you for your generous support!</p>
+
+    <div class="section split">
+      <div class="half" data-reveal>
+        <img class="sponsor" src="Assets/sponsors/interchange.png">
+      </div>
+
+      <div class="half" data-reveal>
+        <img class="sponsor" src="Assets/sponsors/SVEC.jpg">
+      </div>
+
+    </div>
+  </section>
+
 </body>
 
 </html>
