@@ -127,7 +127,7 @@
 
   /* The icon SVGs are white; darken them for the light header */
   .socials img {
-    @apply h-[1.125rem] w-auto opacity-80 sm:h-5 brightness-0 transition duration-700 hover:opacity-100;
+    @apply h-4.5 w-auto opacity-80 sm:h-5 brightness-0 transition duration-700 hover:opacity-100;
   }
 
   html[data-theme="dark"] .nav a:hover,
@@ -172,7 +172,7 @@
   .rule::before,
   .rule::after {
     content: "";
-    @apply absolute -top-1 h-[9px] w-0.5 bg-hhsred;
+    @apply absolute -top-1 h-2.25 w-0.5 bg-hhsred;
   }
 
   .rule::before {
@@ -258,11 +258,11 @@
   }
 
   .picture-square {
-    @apply aspect-square w-full max-w-[34rem] rounded-2xl object-cover;
+    @apply aspect-square w-full max-w-136 rounded-2xl object-cover;
   }
 
   .picture {
-    @apply aspect-[4/3] w-full rounded-xl object-cover;
+    @apply aspect-4/3 w-full rounded-xl object-cover;
   }
 
   .sponsor {
@@ -278,7 +278,7 @@
   }
 
   .news-item .picture {
-    @apply aspect-[2/1] md:order-last;
+    @apply aspect-2/1 md:order-last;
   }
 
   .news-item h3 {

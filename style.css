@@ -494,7 +494,7 @@
     }
   }
   .socials img {
-    height: 1.125rem;
+    height: calc(var(--spacing) * 4.5);
     width: auto;
     opacity: 80%;
     --tw-brightness: brightness(0%);
@@ -594,7 +594,7 @@
     content: "";
     position: absolute;
     top: calc(var(--spacing) * -1);
-    height: 9px;
+    height: calc(var(--spacing) * 2.25);
     width: calc(var(--spacing) * 0.5);
     background-color: var(--color-hhsred);
   }
@@ -736,7 +736,7 @@
   .picture-square {
     aspect-ratio: 1 / 1;
     width: 100%;
-    max-width: 34rem;
+    max-width: calc(var(--spacing) * 136);
     border-radius: var(--radius-2xl);
     object-fit: cover;
   }
