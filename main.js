@@ -39,6 +39,7 @@ if (darkSections.length && "IntersectionObserver" in window) {
 
 // Drive the car across the "What We Do" section as the page scrolls.
 // The text is towed behind the car and the photo is uncovered as it passes.
+// When the layout is stacked (phones), the photo is towed in with the text.
 const drive = document.querySelector(".drive");
 
 if (drive && !reduceMotion.matches) {
@@ -61,10 +62,19 @@ if (drive && !reduceMotion.matches) {
   drive.classList.add("is-driving");
 
   function measure() {
+    // If the content is taller than the screen, pin the stage with its middle
+    // (the text and car) centered, letting the photo run past the edges
+    stage.style.top = "";
+    const stageStyle = getComputedStyle(stage);
+    const baseTop = parseFloat(stageStyle.top) || 0;
+    const minHeight = parseFloat(stageStyle.minHeight) || 0;
+    const stickyTop = baseTop + Math.min(0, (minHeight - stage.offsetHeight) / 2);
+    stage.style.top = `${stickyTop}px`;
+
     const stageBox = stage.getBoundingClientRect();
     const box = (el) => {
       const r = el.getBoundingClientRect();
-      return { left: r.left - stageBox.left, right: r.right - stageBox.left };
+      return { left: r.left - stageBox.left, right: r.right - stageBox.left, top: r.top, bottom: r.bottom };
     };
     const carWidth = car.offsetWidth;
     const textBox = box(text);
@@ -72,7 +82,7 @@ if (drive && !reduceMotion.matches) {
     const lastRight = Math.max(textBox.right, photoBox.right);
 
     layout = {
-      stickyTop: parseFloat(getComputedStyle(stage).top) || 0,
+      stickyTop,
       carWidth,
       wheelRadius: carWidth * WHEEL_RADIUS,
       // Start with just the nose of the car peeking in
@@ -80,6 +90,8 @@ if (drive && !reduceMotion.matches) {
       end: Math.max(stageBox.width, lastRight + GAP) + 10,
       text: textBox,
       photo: photoBox,
+      stacked: photoBox.top >= textBox.bottom,
+      lastRight,
     };
   }
 
@@ -109,6 +121,14 @@ if (drive && !reduceMotion.matches) {
     // Rear bumper of the car, minus a little breathing room
     const tail = x - GAP;
 
+    if (layout.stacked) {
+      const towed = Math.min(0, tail - layout.lastRight);
+      for (const child of [...text.children, photo.firstElementChild]) {
+        child.style.transform = `translate3d(${towed}px, 0, 0)`;
+      }
+      return;
+    }
+
     const towed = Math.min(0, tail - layout.text.right);
     for (const child of text.children) {
       child.style.transform = `translate3d(${towed}px, 0, 0)`;
@@ -128,7 +148,10 @@ if (drive && !reduceMotion.matches) {
   }
 
   function reset() {
-    for (const child of text.children) child.style.transform = "";
+    for (const child of [...text.children, photo.firstElementChild]) {
+      child.style.transform = "";
+    }
+    photo.firstElementChild.style.clipPath = "";
     measure();
     update();
   }

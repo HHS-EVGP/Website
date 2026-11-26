@@ -372,21 +372,14 @@
     @apply h-[300svh];
   }
 
+  /* At least a screen tall; grows if the content needs more (main.js then
+     pins it centered on the text and car) */
   .drive.is-driving .drive-stage {
-    @apply sticky top-16 h-[calc(100svh-4rem)];
+    @apply sticky top-16 min-h-[calc(100svh-4rem)];
   }
 
   .drive.is-driving .drive-content {
     @apply gap-6 py-3 md:gap-16 md:py-10;
-  }
-
-  /* Side by side, the photo fills the pinned stage's height. When stacked on
-     phones it stays full width to match the other photos on the page. */
-  @media (width >= 48rem) {
-    .drive.is-driving .picture-square {
-      @apply w-auto;
-      height: min(34rem, calc(100svh - 10rem));
-    }
   }
 
   /* Drive through the middle of the content rather than below it */

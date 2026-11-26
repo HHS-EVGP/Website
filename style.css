@@ -918,7 +918,7 @@
   .drive.is-driving .drive-stage {
     position: sticky;
     top: calc(var(--spacing) * 16);
-    height: calc(100svh - 4rem);
+    min-height: calc(100svh - 4rem);
   }
   .drive.is-driving .drive-content {
     gap: calc(var(--spacing) * 6);
@@ -928,12 +928,6 @@
     }
     @media (width >= 48rem) {
       padding-block: calc(var(--spacing) * 10);
-    }
-  }
-  @media (width >= 48rem) {
-    .drive.is-driving .picture-square {
-      width: auto;
-      height: min(34rem, calc(100svh - 10rem));
     }
   }
   .drive.is-driving .drive-car {
