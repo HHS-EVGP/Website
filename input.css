@@ -130,6 +130,11 @@
     @apply h-4.5 w-auto opacity-80 sm:h-5 brightness-0 transition duration-700 hover:opacity-100;
   }
 
+  /* Not live yet: dimmed and not clickable */
+  .socials .social-disabled img {
+    @apply cursor-not-allowed opacity-30 hover:opacity-30;
+  }
+
   html[data-theme="dark"] .nav a:hover,
   html[data-theme="dark"] .nav a[aria-current="page"] {
     @apply text-white;
@@ -257,6 +262,14 @@
     @apply translate-x-0 translate-y-0.5;
   }
 
+  .button-disabled {
+    @apply cursor-not-allowed border-gray-300 bg-gray-300 text-gray-500 hover:bg-gray-300 hover:text-gray-500;
+  }
+
+  .button-disabled::after {
+    content: none;
+  }
+
   .picture-square {
     @apply aspect-square w-full max-w-136 rounded-2xl object-cover;
   }
@@ -364,16 +377,14 @@
   }
 
   .drive.is-driving .drive-content {
-    @apply gap-6 py-6 md:gap-16 md:py-10;
+    @apply gap-6 py-3 md:gap-16 md:py-10;
   }
 
-  .drive.is-driving .picture-square {
-    @apply w-auto;
-    height: min(34rem, 34svh);
-  }
-
+  /* Side by side, the photo fills the pinned stage's height. When stacked on
+     phones it stays full width to match the other photos on the page. */
   @media (width >= 48rem) {
     .drive.is-driving .picture-square {
+      @apply w-auto;
       height: min(34rem, calc(100svh - 10rem));
     }
   }

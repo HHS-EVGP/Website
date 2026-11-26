@@ -5,6 +5,8 @@
   :root, :host {
     --font-sans: "Inter Tight", ui-sans-serif, system-ui, sans-serif;
     --font-mono: "JetBrains Mono", ui-monospace, monospace;
+    --color-gray-300: oklch(87.2% 0.01 258.338);
+    --color-gray-500: oklch(55.1% 0.027 264.364);
     --color-white: #fff;
     --spacing: 0.25rem;
     --container-3xl: 48rem;
@@ -513,6 +515,15 @@
       height: calc(var(--spacing) * 5);
     }
   }
+  .socials .social-disabled img {
+    cursor: not-allowed;
+    opacity: 30%;
+    &:hover {
+      @media (hover: hover) {
+        opacity: 30%;
+      }
+    }
+  }
   html[data-theme="dark"] .nav a:hover, html[data-theme="dark"] .nav a[aria-current="page"] {
     color: var(--color-white);
   }
@@ -733,6 +744,25 @@
     --tw-translate-y: calc(var(--spacing) * 0.5);
     translate: var(--tw-translate-x) var(--tw-translate-y);
   }
+  .button-disabled {
+    cursor: not-allowed;
+    border-color: var(--color-gray-300);
+    background-color: var(--color-gray-300);
+    color: var(--color-gray-500);
+    &:hover {
+      @media (hover: hover) {
+        background-color: var(--color-gray-300);
+      }
+    }
+    &:hover {
+      @media (hover: hover) {
+        color: var(--color-gray-500);
+      }
+    }
+  }
+  .button-disabled::after {
+    content: none;
+  }
   .picture-square {
     aspect-ratio: 1 / 1;
     width: 100%;
@@ -892,7 +922,7 @@
   }
   .drive.is-driving .drive-content {
     gap: calc(var(--spacing) * 6);
-    padding-block: calc(var(--spacing) * 6);
+    padding-block: calc(var(--spacing) * 3);
     @media (width >= 48rem) {
       gap: calc(var(--spacing) * 16);
     }
@@ -900,12 +930,9 @@
       padding-block: calc(var(--spacing) * 10);
     }
   }
-  .drive.is-driving .picture-square {
-    width: auto;
-    height: min(34rem, 34svh);
-  }
   @media (width >= 48rem) {
     .drive.is-driving .picture-square {
+      width: auto;
       height: min(34rem, calc(100svh - 10rem));
     }
   }
