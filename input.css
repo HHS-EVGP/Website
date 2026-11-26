@@ -336,35 +336,48 @@
     width: var(--car-w);
   }
 
-  /* Ground shadow: a wide soft pool plus tighter contact shadows under each wheel */
-  .drive-car::before,
-  .drive-car::after {
-    content: "";
-    @apply pointer-events-none absolute -z-10 rounded-[50%];
-  }
-
-  .drive-car::before {
-    @apply inset-x-[-2%] top-[86%] h-[18%];
-    background: radial-gradient(closest-side, rgb(6 16 69 / 0.28), rgb(6 16 69 / 0.1) 60%, transparent);
-  }
-
-  .drive-car::after {
-    @apply inset-x-0 top-[80%] h-1/4 rounded-none;
-    background:
-      /* Front wheel, touching down at 96.5% */
-      radial-gradient(16% 16% at 67.8% 66%, rgb(6 16 69 / 0.55), transparent),
-      /* Rear wheel, touching down higher (at 86%) because it sits farther back */
-      radial-gradient(8% 12% at 14.4% 26%, rgb(6 16 69 / 0.45), transparent);
-  }
-
   .drive-car img {
     @apply block w-full select-none;
   }
 
-  .drive-wheel {
-    @apply absolute inset-0 h-full;
-    /* Center of the wheel in Car_Wheel.png */
-    transform-origin: 67.846% 67.27%;
+  /* Ground shadows, positioned in Car_Side.png's pixels (3923×1479) */
+  .drive-car::before,
+  .drive-car::after {
+    content: "";
+    @apply pointer-events-none absolute -z-10;
+  }
+
+  /* Under the body, on the ground line where the rear wheel touches down at
+     (495, 1307). The darkest spot sits under the rear wheel (14% across this
+     box) and fades out toward the nose; the mask fades the short side out
+     toward the tail */
+  .drive-car::before {
+    left: -2%;
+    width: 104%;
+    top: 84.3%;
+    height: 8.5%;
+    background: radial-gradient(86% 50% at 14% 50%, rgb(6 16 69 / 0.62), rgb(6 16 69 / 0.35) 55%, rgb(6 16 69 / 0.25) 85%, transparent);
+    mask-image: linear-gradient(to right, transparent, #000 14%);
+  }
+
+  /* Under the front wheels, which are closer to the camera so touch down
+     lower, at (2661, 1472) */
+  .drive-car::after {
+    left: 57.4%;
+    width: 21%;
+    top: 96.2%;
+    height: 6.6%;
+    background: radial-gradient(closest-side, rgb(6 16 69 / 0.75), rgb(6 16 69 / 0.3) 55%, transparent);
+  }
+
+  /* Car_Wheel.png (961×938) sits at (2190, 536) in Car_Side.png */
+  .drive-car .drive-wheel {
+    @apply absolute;
+    left: 55.825%;
+    top: 36.241%;
+    width: 24.497%;
+    /* Axle (center of the rim and hub) in Car_Wheel.png, at (471, 475) */
+    transform-origin: 49.01% 50.64%;
   }
 
   /* Pinned, scroll-driven version (main.js adds .is-driving) */
@@ -382,10 +395,11 @@
     @apply gap-6 py-3 md:gap-16 md:py-10;
   }
 
-  /* Drive through the middle of the content rather than below it */
+  /* Drive through the middle of the content rather than below it. Centers the
+     car itself (top of Car_Side.png down to the wheel bottom, 1472 of 3923) */
   .drive.is-driving .drive-car {
     @apply absolute left-0 m-0 will-change-transform;
-    top: calc(50% - var(--car-w) * 0.1972);
+    top: calc(50% - var(--car-w) * 0.1876);
   }
 
   .drive.is-driving .drive-wheel,
