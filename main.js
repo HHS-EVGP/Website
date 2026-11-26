@@ -50,7 +50,7 @@ if (drive && !reduceMotion.matches) {
   const photo = drive.querySelector(".drive-photo");
 
   // Wheel radius as a fraction of the car image width
-  const WHEEL_RADIUS = 465 / 3923;
+  const WHEEL_RADIUS = 469.5 / 3923;
   // Gap between the back of the car and whatever follows it
   const GAP = 32;
   // Portion of the scroll spent driving; the rest holds the finished layout

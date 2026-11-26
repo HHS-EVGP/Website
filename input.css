@@ -361,23 +361,23 @@
   }
 
   /* Under the front wheels, which are closer to the camera so touch down
-     lower, at (2661, 1472) */
+     lower, at (2678, 1479) */
   .drive-car::after {
-    left: 57.4%;
+    left: 57.8%;
     width: 21%;
-    top: 96.2%;
+    top: 96.7%;
     height: 6.6%;
     background: radial-gradient(closest-side, rgb(6 16 69 / 0.75), rgb(6 16 69 / 0.3) 55%, transparent);
   }
 
-  /* Car_Wheel.png (961×938) sits at (2190, 536) in Car_Side.png */
+  /* Car_Wheel.png (939×939, cropped to a circle around the axle) sits at
+     (2209, 541) in Car_Side.png, so it spins about its center (2678.5, 1010.5) */
   .drive-car .drive-wheel {
     @apply absolute;
-    left: 55.825%;
-    top: 36.241%;
-    width: 24.497%;
-    /* Axle (center of the rim and hub) in Car_Wheel.png, at (471, 475) */
-    transform-origin: 49.01% 50.64%;
+    left: 56.309%;
+    top: 36.579%;
+    width: 23.936%;
+    transform-origin: 50% 50%;
   }
 
   /* Pinned, scroll-driven version (main.js adds .is-driving) */
@@ -396,10 +396,10 @@
   }
 
   /* Drive through the middle of the content rather than below it. Centers the
-     car itself (top of Car_Side.png down to the wheel bottom, 1472 of 3923) */
+     car itself (top of Car_Side.png down to the wheel bottom, 1479 of 3923) */
   .drive.is-driving .drive-car {
     @apply absolute left-0 m-0 will-change-transform;
-    top: calc(50% - var(--car-w) * 0.1876);
+    top: calc(50% - var(--car-w) * 0.1885);
   }
 
   .drive.is-driving .drive-wheel,
